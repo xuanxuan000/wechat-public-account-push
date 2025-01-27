@@ -333,7 +333,8 @@ export const getEarthyLoveWords = async () => {
   const data = await getWordsFromApiShadiao('chp') || DEFAULT_OUTPUT.earthyLoveWords
 
   const arr = []
-  for (let j = 0, i = 0; j < data.length; j += 20) {
+  let j = 0, i = 0;
+  for (; j < data.length; j += 20) {
     arr.push({
       name: `wx_earthy_love_words_${i}`,
       value: data.slice(j, j + 20),
@@ -341,6 +342,11 @@ export const getEarthyLoveWords = async () => {
     })
     i++
   }
+  arr.push({
+    name: `wx_earthy_love_words_${i}`,
+    value: "",
+    color: getColor()
+  })
 
   return {
     earthyLoveWords: data,
