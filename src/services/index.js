@@ -342,11 +342,14 @@ export const getEarthyLoveWords = async () => {
     })
     i++
   }
-  arr.push({
-    name: `wx_earthy_love_words_${i}`,
-    value: "",
-    color: getColor()
-  })
+  for (let k = 0; k < 3; ++k) {
+    arr.push({
+      name: `wx_earthy_love_words_${i}`,
+      value: "",
+      color: getColor()
+    })
+    i++
+  }
 
   return {
     earthyLoveWords: data,
